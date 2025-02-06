@@ -14,9 +14,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+from django.contrib import admin    #importa a função admin
+from django.urls import path    #importa a função path
+from django.conf import settings    #importa as configurações do projeto
+from django.conf.urls.static import static  #importa a função static
+
+from cars.views import cars_view    #importa a função cars_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('cars/', cars_view)  #adiciona a url cars/ e a função cars_view
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #adiciona a url de media e o caminho da pasta de media
+
