@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meus carros</title>
+</head>
+{% block content %}
+    <body>
+    {% for cars in cars %} # Itera sobre a lista de carros passada pelo controller
+        <h3>{{cars.brand}} - {{cars.model}} - {{cars.factory_year}}</h3> # Exibe o modelo do carro, o ano de fabricação e a marca
+    {% endfor %}
+    <h3>Carro 1 : {{cars.model}}</h3> # Exibe o modelo do carro, que foi passado pelo controller para a view
+    </body>
+{% endblock %}
+</html>
